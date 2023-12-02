@@ -167,39 +167,35 @@ void delete(int item)
 		{
 			if(temp->lchild==NULL)
 			{
-			temp1->rchild=temp->rchild;
+				temp1->rchild=temp->rchild;
 			}
 			else
 			{
-			temp1->rchild=temp->lchild;
+				temp1->rchild=temp->lchild;
 			}
 		}
 		if(temp1->lchild==temp)
 		{
 			if(temp->lchild==NULL)
 			{
-			temp1->lchild=temp->rchild;
+				temp1->lchild=temp->rchild;
 			}
 			else
 			{
-			temp1->lchild=temp->lchild;
+				temp1->lchild=temp->lchild;
 			}
 		}
 	}
 
 	if(key==3)
-	{
-	temp2=temp;
-      temp3=succ(temp);
-	item=temp3->data;
-	delete(item);
-	temp2->data=item;
-	}
-	if(key==root->data)
-	{
-		root=NULL;
-		root=temp->rchild;
+		{
+			temp2=temp;
+    	    temp3=succ(temp);
+			item=temp3->data;
+			delete(item);
+			temp2->data=item;
 		}
+	
 	}
 
 
