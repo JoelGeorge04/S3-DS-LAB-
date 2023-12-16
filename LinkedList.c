@@ -25,10 +25,10 @@ void insert_begin()
 	}
 	else
 	{
-	temp=header;
-	newnode->link=temp;
-	header=newnode;
-	newnode->data=item;
+		temp=header;
+		newnode->link=temp;
+		header=newnode;
+		newnode->data=item;
 	}
 }
 void insert_end()
@@ -64,11 +64,11 @@ void insert_key()
 	temp=header;
 	while(temp->link!=NULL&&temp->data!=key)
 	{
-	temp=temp->link;
+		temp=temp->link;
 	}
 	if(temp->link==NULL&&temp->data!=key)
 	{
-	printf("Key not found");
+		printf("Key not found");
 	}
 	newnode->link =temp->link;
 	temp->link=newnode;
@@ -78,18 +78,18 @@ void delete_begin()
 	
 	if(header==NULL)
 	{
-	printf("List empty");
+		printf("List empty");
 	}
 	else if(header->link==NULL)
 	{
-	header=NULL;
-	printf("List empty");
+		header=NULL;
+		printf("List empty");
 	}
 	else
 	{
-	temp=header;
-	header=temp->link;
-	free(temp);
+		temp=header;
+		header=temp->link;
+		free(temp);
 	}
 
 }
@@ -98,13 +98,13 @@ void delete_end()
 
 	if(header==NULL)
 	{
-	printf("List empty");
+		printf("List empty");
 	}
 	temp=header;
 	while(temp->link!=NULL)
 	{
-	temp1=temp;
-	temp=temp->link;
+		temp1=temp;
+		temp=temp->link;
 	}
 	temp1->link=NULL;
 	free(temp);
@@ -115,42 +115,41 @@ void delete_key()
 	scanf("%d",&key);
 	if(header==NULL)
 	{
-	printf("List empty");
+		printf("List empty");
 	}
 	else 
 	{
-	temp=header;
-	while(temp->link!=NULL && temp->data!=key)
-	{
-	temp1=temp;
-	temp=temp->link;
+		temp=header;
+		while(temp->link!=NULL && temp->data!=key)
+		{
+			temp1=temp;
+			temp=temp->link;
+		}
+		if(temp->link==NULL&&temp->data!=key)
+		{
+			printf("Key not found");
+		}
+		else
+		{
+			temp1->link=temp->link;
+			free(temp);
+		}
 	}
-	if(temp->link==NULL&&temp->data!=key)
-	{
-	printf("Key not found");
-	}
-	else
-	{
-	temp1->link=temp->link;
-
-	free(temp);
-	}
-}
 }
 void display()
 {
 	if(header==NULL)
 	{
-	printf("List empty");
+		printf("List empty");
 	}
 	else
 	{
-	temp=header;
-	while(temp!=NULL)
-	{
-	printf("%d \t",temp->data);
-	temp=temp->link;
-	}
+		temp=header;
+		while(temp!=NULL)
+		{
+			printf("%d \t",temp->data);
+			temp=temp->link;
+		}
 	}
 }
 void main()
@@ -174,7 +173,6 @@ void main()
 		break;
 	case 6 :delete_key();
 		break;
-	
 	case 7 :display();
 		break;
 	default :printf("Invalid \n");
@@ -183,5 +181,4 @@ void main()
     printf(" \n Do you want to quit click '0' or to continue click '1' ");
     scanf("%d",&y);
 	}while(y==1);
-
 }
