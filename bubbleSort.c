@@ -7,7 +7,7 @@ int main()
 	printf("Enter the elements \n");
 	for(i=0;i<n;i++)
 	{
-	scanf("%d",&a[i]);
+		scanf("%d",&a[i]);
 	}
 	for(i=0;i<n-1;i++)
 	{
@@ -15,16 +15,16 @@ int main()
 		{
 			if(a[j]>a[j+1])
 			{
-			temp=a[j+1];
-			a[j+1]=a[j];
-			a[j]=temp;
+				temp=a[j+1];
+				a[j+1]=a[j];
+				a[j]=temp;
 			}
 		}
 	}
-		printf("Sorted array \n");
+	printf("Sorted array \n");
 	for(i=0;i<n;i++)
 	{
-	printf("%d \t",a[i]);
+		printf("%d \t",a[i]);
 	}
 	return 0;
 }
