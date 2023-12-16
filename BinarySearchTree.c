@@ -202,6 +202,7 @@ void main()
 	
 	do
 	{
+	int y;
 	printf("\n 1.Insert \n2.Inorder \n3.preorder \n4.Postorder \n5.Delete\n ");
 	scanf("%d",&ch);
 	switch(ch)
@@ -221,5 +222,7 @@ void main()
 				delete(item);
 				break;
 	}	
-	}while(ch!=0);
+	  printf(" \n Do you want to quit click '0' or to continue click '1' ");
+   	  scanf("%d",&y);
+	}while(y==1);
 }
