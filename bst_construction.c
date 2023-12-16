@@ -8,7 +8,7 @@ void buildtree(int a[],int i,int root)
 	
 	if(i==0)
 	{
-	return;
+		return;
 	}
 	else
 	{
