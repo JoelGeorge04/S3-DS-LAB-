@@ -12,7 +12,7 @@ int precedence(char op)
     {
         return 2;
     }      
-         else if(op=='^')
+    else if(op=='^')
     {
         return 3;
     }
