@@ -75,18 +75,6 @@ void smallest()
 	}
     printf("Smallest Node :%d",temp1->data);
 }
-struct node*succ(struct node* temp)
-{
-	temp1=temp->rchild;
-	if(temp1!=NULL)
-	{
-		while(temp1->lchild!=NULL)
-		{
-			temp1=temp1->lchild;
-		}
-	return temp1;
-	}
-}
 void main()
 {
 	

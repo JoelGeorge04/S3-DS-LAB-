@@ -74,18 +74,6 @@ void nodes(struct node* temp)
         nodes(temp->rchild);
     }
 }
-struct node*succ(struct node* temp)
-{
-	temp1=temp->rchild;
-	if(temp1!=NULL)
-	{
-		while(temp1->lchild!=NULL)
-		{
-			temp1=temp1->lchild;
-		}
-	return temp1;
-	}
-}
 void main()
 {
 	
