@@ -52,7 +52,6 @@ void reverse()
         current=next;
     }
     head=prev;
-    temp=head;
     //to display call display
 }
 void main()
