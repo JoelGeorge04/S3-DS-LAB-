@@ -70,6 +70,7 @@ void main()
             case 3:reverse();  
                     break;
             default:printf("Invalid \n");
+                    break;
         }
     }while(ch!=4);
 }
