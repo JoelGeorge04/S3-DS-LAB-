@@ -29,7 +29,7 @@ void insert()
         newnode->link=NULL;
     }
 }
-void diaplay()
+void display()
 {
     temp=head;
     printf("List ==>> ");
@@ -65,7 +65,7 @@ void main()
         {
             case 1:insert();
                     break;
-            case 2:diaplay();
+            case 2:display();
                     break;
             case 3:reverse();  
                     break;
