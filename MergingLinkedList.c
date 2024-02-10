@@ -5,7 +5,7 @@ struct node
     int data;
     struct node* link;
 };
-struct node *head,*head1,*head2,*current,*temp,*prev,*next,*newnode;
+struct node *head,*head1,*head2,*temp,*newnode;
 int item;
 struct node* insert(struct node* head)
 {
