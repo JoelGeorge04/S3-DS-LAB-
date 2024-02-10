@@ -32,10 +32,9 @@ struct node* insert(struct node* head)
 }
 void display()
 {
-    //printf("First List");
     if(head1==NULL)
     {
-        printf("1st List Empty");
+        printf("1st List Empty \n");
     }
     else
     {
@@ -49,7 +48,7 @@ void display()
     }
         if(head2==NULL)
         {
-           printf("\n2st List Empty \n");
+           printf("2st List Empty \n");
         }
         else
         {
