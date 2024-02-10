@@ -182,33 +182,63 @@ void merge_sort(int low,int high)
 void main()
 {	
 	int ch;
-	printf("Enter the number of elements:");
-	scanf("%d",&n);
-	printf("Enter the elements:");
-	for(i=0;i<n;i++)
-	{
-		scanf("%d",&a[i]);
-	}
 	do
 	{
-	printf(" Enter your choice \n1.insertion \n2.selection \n3.bubble \n4.quick \n5.Merge \n");
+	printf("\nEnter your choice \n1.insertion \n2.selection \n3.bubble \n4.quick \n5.Merge \n");
 	scanf("%d",&ch);
 	switch(ch)
 	{
-		case 1: insertion();
-			break;
-		case 2: selection_sort(a,n);
-			break;
-		case 3: bubble_sort(a,n);
-			break;
+		case 1: printf("Enter the number of elements:\n");
+            	scanf("%d",&n);
+	            printf("Enter the elements:\n");
+	            for(i=0;i<n;i++)
+	            {
+		            scanf("%d",&a[i]);
+	            }
+    			insertion();
+    			break;
+		case 2: printf("Enter the number of elements:\n");
+            	scanf("%d",&n);
+	            printf("Enter the elements:\n");
+	            for(i=0;i<n;i++)
+	            {
+		            scanf("%d",&a[i]);
+	            }
+    			selection_sort(a,n);
+    			break;
+		case 3: printf("Enter the number of elements:\n");
+            	scanf("%d",&n);
+	            printf("Enter the elements:\n");
+	            for(i=0;i<n;i++)
+	            {
+		            scanf("%d",&a[i]);
+	            }
+	            bubble_sort(a,n);
+    			break;
 		case 4: quick(a,0,n-1);
 				display();
-			break;
-		case 5:low =0;
-			 high =n-1;
-			merge_sort(low,high);
-			display();
-			break;
+            	printf("Enter the number of elements:\n");
+            	scanf("%d",&n);
+	            printf("Enter the elements:\n");
+	            for(i=0;i<n;i++)
+	            {
+		            scanf("%d",&a[i]);
+	            }
+	            bubble_sort(a,n);
+			    break;
+		case 5: printf("Enter the number of elements:\n");
+            	scanf("%d",&n);
+	            printf("Enter the elements:\n");
+	            for(i=0;i<n;i++)
+	            {
+		            scanf("%d",&a[i]);
+	            }
+		
+		        low =0;
+		    	high =n-1;
+		    	merge_sort(low,high);
+		    	display();
+			    break;
 	}
-	}while(ch!=5);	
+	}while(ch!=6);	
 }
