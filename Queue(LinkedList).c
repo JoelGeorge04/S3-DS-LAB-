@@ -58,12 +58,14 @@ void dequeue()
 	{
 		printf("Deleted item is %d\n",front->data);
 		front=rear=NULL;
+  free(front);
 	}
 	else
 	{
 		temp=front;
 		printf("Deleted item is %d\n",temp->data);
-		front=front->link;
+		front=temp->link;
+  free(temp);
 	}
 }
 void display()
