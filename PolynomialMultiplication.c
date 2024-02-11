@@ -41,16 +41,17 @@ void main()
     {
         for(j=0;j<n2;j++)
         {
-            p3[k].expo=p1[i].expo+p2[j].expo;
-            p3[k].coeff=p1[i].coeff*p2[j].coeff;
+            p3[k].expo=p1[i].expo + p2[j].expo;
+            p3[k].coeff=p1[i].coeff * p2[j].coeff;
             k++;
         }
     }
-    n3=k-1;
+    n3=k;
     printf("\nResultant polynomial\n");
-    for(k=0;k<n3;k++)
+    for(k=0;k<n3-1;k++)
     {
-        printf("%dX^%d+",p3[i].coeff,p3[i].expo);
+        printf("%dX^%d+",p3[k].coeff,p3[k].expo);
     }
-    printf("%dX^%d",p3[n2-1].coeff,p3[n2-1].expo);
+    printf("%dX^%d",p3[n3-1].coeff,p3[n3-1].expo);
+    
 }
