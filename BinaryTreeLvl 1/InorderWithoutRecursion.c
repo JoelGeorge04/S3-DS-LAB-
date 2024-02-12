@@ -14,7 +14,7 @@ struct node*root=NULL;
 int ch,item,flag,key,y,top=-1;
 void push(struct node* temp)
 {
-    if(top>=max)
+    if(top>=max-1)
     {
         return;
     }
