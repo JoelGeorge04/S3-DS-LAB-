@@ -49,7 +49,7 @@ void display()
         printf("List ==> \n");
         while(temp!=NULL)
         {
-            printf("Nmae=%c\nAge=%d\nSalary=%f\n",temp->name,temp->age,temp->salary);
+            printf("Nmae=%s\nAge=%d\nSalary=%f\n",temp->name,temp->age,temp->salary);
             temp=temp->link;
         }
     }
