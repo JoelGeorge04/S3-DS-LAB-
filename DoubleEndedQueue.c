@@ -9,7 +9,7 @@ void inject()
 		int x;
 		printf("Enter the element \n");
 		scanf("%d",&x);
-		if(rear==n-1)
+		if(front == (rear+1)%n);
 		{
 		    printf("Overloading (Full) \n");
 		}
