@@ -90,7 +90,7 @@ void main()
 {
     int ch;
     do{
-        printf("\n1.Insert(1st List)\n2.Insert(2nd List) \n3.Display(Both List)\n4.MergeList\n");
+        printf("\n1.Insert(1st List)\n2.Insert(2nd List) \n3.Display(Both List)\n4.MergeList\n5.Exit\n");
         scanf("%d",&ch);
         switch(ch)
         {
@@ -102,6 +102,7 @@ void main()
                     break;
             case 4:merge();
                    break;
+            case 5:break;
             default:printf("Invalid \n");
                     break;
         }
