@@ -1,179 +1,162 @@
 #include<stdio.h>
 #include<string.h>
-int n,n1,top=-1,top1=-1;
-char infix[20],stack[20],stack1[20],postfix[20],g,prefix[20];
-int precedence(char op)
-{
-    if(op=='+'||op=='-')
-    {
-       return 1;
-    }
-    else if(op=='*'||op=='/')
-    {
-        return 2;
-    }      
-    else if(op=='^')
-    {
-        return 3;
-    }
-    else
-    {
-         return 0;
-    }
+#include<math.h>
+
+#define size 10
+char infix[size],stack[size],postfix[size],prefix[size];
+int n,w;
+int top=-1;
+
+
+
+int precedence(char el){
+ switch(el){
+  case '^':
+   return 4;
+   break;
+  case '*':
+   return 3;
+   break;
+  case '/':
+   return 3;
+   break;
+  case '+':
+   return 2;
+   break;
+  case '-':
+   return 2;
+   break;
+  default:
+                 return 0;
+                 break;
+  
+ }
 }
-void eval()
-{
-n1=strlen(postfix);
-int i,op,op1,op2;
-for(i=0;i<n1;i++)
-{
-    if(postfix[i]>='a'&&postfix[i]<='z'||postfix[i]>='A'&&postfix[i]<='Z')
-    {
-        printf("Enter the value of %c:",postfix[i]);
-         top=top+1;
-        scanf("%d",&stack1[top]);
+
+void infix_prefix(){
+ n=strlen(prefix);
+ int i,j;
+ for(i=0, j=0;i<n;i++){
+  if(prefix[i]>='a'&&prefix[i]<='z' ||prefix[i]>='A'&&prefix[i]<='Z'){
+   postfix[j++]=prefix[i];
+   
+  }
+  else if(prefix[i]=='('){
+   stack[++top]=prefix[i];
+  }
+  else if(prefix[i]==')'){
+   while(stack[top]!='(' && top>-1){
+   
+     postfix[j++]=stack[top--];
+    
+    top--;
+   }
+  }
+  else if(prefix[i]=='+' || prefix[i]=='-' || prefix[i]=='/' || prefix[i]=='*' || prefix[i]=='^' ){
+  
+    if(stack[top]=='*' && prefix[i]=='*' ||stack[top]=='/' && prefix[i]=='/' || stack[top]=='+' && prefix[i]=='+'||stack[top]=='-' && prefix[i]=='-' ){
+     stack[++top]=prefix[i];
     }
-    else if(postfix[i]=='+'||postfix[i]=='-'||postfix[i]=='*'||
-             postfix[i]=='/'||postfix[i]=='^')
-    {
-        g=postfix[i];
-        op1=stack1[top];
-        op=top-1;
-        op2=stack1[top];
-        top=top-1;
-                switch(g)
-            {
-                case '+':op=op1+op2;
-                         top=top+1;
-                        stack1[top]=op;
-                        break;
-                 case '-':op=op1-op2;
-                        top=top+1;
-                        stack1[top]=op;
-                         break;
-                case '*':op=op1*op2;
-                        top=top+1;
-                        stack1[top]=op;
-                        break;
-                case '/':op=op1/op2;
-                        top=top+1;
-                        stack1[top]=op;
-                        break;
-                case '^':op=op1^op2;
-                        top=top+1;
-                        stack1[top]=op;
-                        break;
+    else{
+     while(precedence(stack[top])>=precedence(prefix[i])){
+     postfix[j++]=stack[top--];
+     }
+     stack[++top]=prefix[i];
+    }
+   
+   
+   
+  }
+  
+  }
+  while(top>-1){
+   postfix[j++]=stack[top--];
+   
+  }
+  
+}
+	
+
+
+void prefixx(){
+ w=strlen(infix);
+ int j=0;
+ for(int i=(w-1);i>=0;i--){
+	
+  prefix[j]=infix[i];
+  j++;
+
+ }
+	
+ for(int i=0;i<w;i++){
+  if(prefix[i]=='('){
+   prefix[i]=')';
+  }
+  else if(prefix[i]==')'){
+   prefix[i]='(';
+  }
+ }
+ printf("Reversed:");
+ for(int i=0;i<w;i++){
+  printf("%c",prefix[i]);
+ }
+ printf("\n");
+	
+
+}
+
+
+void eval() {
+    int k, i = 0, result = 0, op1, op2;
+    top = -1;
+    k = strlen(postfix);
+    for (i = 0; i < k; i++) {
+        if (postfix[i] >= 'a' && postfix[i] <= 'z' || postfix[i] >= 'A' && postfix[i] <= 'Z') {
+            printf("Enter the value of %c: ", postfix[i]);
+            scanf("%d", &stack[++top]);
+        } else if (postfix[i] == '+' || postfix[i] == '-' || postfix[i] == '*' || postfix[i] == '/' || postfix[i] == '^') {
+            op1 = stack[top--];
+            op2 = stack[top--];
+            if (postfix[i] == '+') {
+                stack[++top] = op1 + op2;
+            } else if (postfix[i] == '-') {
+                stack[++top] = op1 - op2;
+            } else if (postfix[i] == '*') {
+                stack[++top] = op1 * op2;
+            } else if (postfix[i] == '/') {
+                stack[++top] = op1 / op2;
+            } else if (postfix[i] == '^') {
+                stack[++top] = (int)pow(op1, op2);
             }
-       }
-    }       
-    printf("%d",stack1[top]);
-}
-void rev()
-{
-    int i,j;
-    i=0;
-    j=n-1;
-    char r;
-    while(i<j)
-    {
-             r=infix[i];
-             infix[i]=infix[j];
-             infix[j]=r;
-             i++;
-             j--;
-    }
-    for(i=0;i<n;i++)
-    {
-                if(infix[i]==')')
-                {
-                   infix[i]='(';
-                }
-                else if(infix[i]=='(')
-                {
-                    infix[i]=')';   
-                }
-    }
-    infix[n]='\0';
-    printf("Reversed string is: %s \n",infix);
-}
-void rev1()
-{
-    int i,j;
-    i=0;
-    int n2;
-    n2=strlen(postfix);
-    j=n2-1;
-    char r;
-    while(i<n2) 
-    {
-        prefix[i]=postfix[j];
-        i++;
-        j--;
-    }
-    prefix[n]='\0';
-    printf("Prefix:%s\n",prefix);
-}
-void infix_to_postfix()
-{
-    int i,j;
-    for(i=0,j=0;i<n;i++)
-    {
-        if(infix[i]>='a'&&infix[i]<='z'||infix[i]>='A'&&infix[i]<='Z')
-        {
-            postfix[j]=infix[i];
-            j++;
         }
-        else if(infix[i]=='(')
-        {
-            stack[++top]=infix[i];
-        }     
-        else if(infix[i]==')')
-        {
-            while(stack[top] != '(' && top>-1)
-            {
-                if(stack[top]!='(' && top==-1)
-                {
-                    printf("Invalid expression \n");
-                }
-                else
-                {
-                        postfix[j++]=stack[top--];
-                }
-            }
-            top--;
-        }
-        else if(infix[i]=='+'||infix[i]=='-'||infix[i]=='*'||infix[i]=='/'||
-                infix[i]=='^')
-        {   
-            if(precedence(stack[top])==precedence(infix[i])&&infix[i]!='^')
-            {
-                stack[++top]=infix[i];
-            }
-            else
-            {
-                while(precedence(stack[top])>precedence(infix[i]))
-                {
-                   postfix[j++]=stack[top--];
-                }
-            stack[++top]=infix[i];
-            }
-         }
     }
-    while(top>-1)
-    {
-        postfix[j++]=stack[top--];
-    }
-    postfix[j]='\0';
+    printf("The result of prefix evaluation is %d\n", stack[top]);
 }
-void main()
-{
-    printf("Enter the expression \n");
-    scanf("%s",infix);
-    n=strlen(infix);
-    rev();
-    infix_to_postfix();
-    printf("Postfix of reversed expression: %s \n",postfix);
-    rev1();
-    printf("Evaluation---- \n");
-    eval();
+
+
+
+
+void main(){
+ int m,k;
+ printf("Enter Expression:");
+ scanf("%s",infix);
+ prefixx();
+ infix_prefix();
+ m=strlen(postfix);
+ printf("Prefix:");
+ for(k=0;k<=m;k++){
+  printf("%c",postfix[k]);
+  
+ }
+ printf("\n");
+	
+ printf("Reversed prefix:");
+ for(k=m-1;k>=0;k--){
+  printf("%c",postfix[k]);
+  
+ }
+ eval();
 }
+
+
+    
