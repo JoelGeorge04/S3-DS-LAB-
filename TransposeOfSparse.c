@@ -2,11 +2,11 @@
 void main()
 { 
     int r,c,i,j,a[10][10],t[3][10],s[3][10],k=1,x=1;
-     printf("enter no of rows:");
+     printf("Enter no of rows:\n");
     scanf("%d",&r);
-     printf("enter no of cols:");
+     printf("Enter no of cols:\n");
     scanf("%d",&c);
-    printf("enter sparse matrix elements:\n");
+    printf("Enter sparse matrix elements:\n");
     for(i=0;i<r;i++)
      {
          for(j=0;j<c;j++)
@@ -14,7 +14,7 @@ void main()
             scanf("%d",&a[i][j]);
          }
     }
-    printf("the sparse matrix is:\n");
+    printf("The sparse matrix is:\n");
     for(i=0;i<r;i++)
     {
         for(j=0;j<c;j++)
@@ -36,7 +36,7 @@ void main()
             }
          }
     }
-    printf("sparse matrix representation:\n");
+    printf("Sparse matrix representation:\n");
      s[0][0]=r;
     s[1][0]=c;
      s[2][0]=k-1;
@@ -64,7 +64,7 @@ void main()
     t[0][0]=s[1][0];
     t[1][0]=s[0][0];
     t[2][0]=s[2][0];
-    printf("transose of sparse matrix :\n"); 
+    printf("Transose of sparse matrix :\n"); 
     for(i=0;i<3;i++)
     {
         for(j=0;j<x;j++)
