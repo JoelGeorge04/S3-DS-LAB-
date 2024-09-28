@@ -29,9 +29,9 @@ void insert()
     else
     {
         temp=head;
-        while(temp->link!=NULL)
+        while(temp->link!=NULL)        
         {
-            temp=temp->link;
+            temp=temp->link;      //newnode inserted to the end of linkedlist.
         }
         temp->link = newnode;
         newnode->link=NULL;
